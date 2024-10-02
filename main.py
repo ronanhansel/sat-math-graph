@@ -13,7 +13,7 @@ def plot_linear_function(function: str, point=None, x_step=1, y_step=1, max_x=10
     fig, ax = plt.subplots()
 
     # Plot the function
-    ax.plot(x, y)
+    ax.plot(x, y, linewidth=1.75)
 
     # Draw the x and y axes
     ax.axhline(0, color='black',linewidth=0.5)
@@ -73,18 +73,20 @@ def plot_linear_function(function: str, point=None, x_step=1, y_step=1, max_x=10
     for line in ax.get_lines():
         line.set_color('black')
 
+    fig.set_size_inches(1080 / fig.dpi, 1080 / fig.dpi)
     # Show the plot
     plt.show()
+    # Save the plot as an image file
+    fig.savefig('linear_function_plot.png', dpi=192)
 
 if __name__ == "__main__":
-    # Input the slope and intercept of the linear function
-    x_step = 2
-    y_step = 2
-    max_x = 10
-    max_y = 10
-    n_max_x = 10
-    n_max_y = 10
     f = input("Enter the function: y=")
+    x_step = int(input("Enter the x_step: "))
+    y_step = int(input("Enter the y_step: "))
+    max_x = int(input("Enter the max_x: "))
+    max_y = int(input("Enter the max_y: "))
+    n_max_x = int(input("Enter the n_max_x: "))
+    n_max_y = int(input("Enter the n_max_y: "))
 
     plot_linear_function(function=f, point=None, x_step=x_step, y_step=y_step, max_x=max_x, max_y=max_y, n_max_x=n_max_x, n_max_y=n_max_y)
     # plot_linear_function(function='np.exp(x)', point=None, x_step=x_step, y_step=y_step, max_x=max_x, max_y=max_y, n_max_x=n_max_x, n_max_y=n_max_y)
